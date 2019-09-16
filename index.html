@@ -10,102 +10,134 @@
 <body>
     <header>
         <div class="container">
+           <div class="row">
+               <div class="col-12 mt-2">
+                   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav bg-inverse">
+                          <li class="nav-item">
+                               <a href="index.html" class="nav-link active">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Ayuda</a>
+                            </li>
+                        </ul>
+                       </div>
+                   </nav>
+                    
+               </div>
+           </div>
+        </div>
+        <div class="container">
             <h1>NigthApp</h1>
         </div>
     </header>
     <div class="container">
-        <section class='main row'>
-            <article class="col-xs-12 col-sm-8 col-md-9">
-                <p>Do ab illustriora se cillum vidisse e fore anim do e anim fugiat tamen occaecat, 
-                    iudicem id aute, ex ut minim arbitror, tempor fore quid sed quorum, incurreret 
-                    an fugiat deserunt, te lorem eiusmod ingeniis. Voluptate distinguantur ad 
-                    fabulas, tempor culpa mentitum admodum. Nescius consectetur ad proident sed 
-                    eiusmod amet ullamco o est veniam ex magna o aliquip quis quem iudicem enim. 
-                    Mandaremus praetermissum eu eiusmod. Commodo ita nisi ingeniis quo est legam 
-                    familiaritatem ex culpa cupidatat mentitum, ubi elit eu quem, nescius nam 
-                    offendit te nostrud quem magna e amet de te non aliqua officia, eu illum aute 
-                    multos litteris. Doctrina aute multos laboris quid, legam tempor in culpa summis 
-                    aut occaecat ita dolor vidisse qui ubi sunt e sunt. Nulla si occaecat de fore, 
-                    voluptate nisi vidisse, et ipsum litteris qui appellat summis quamquam.
-                </p> 
-            </article>
-            <aside class="col-xs-12 col-sm-4 col-md-3">
-                E tamen ipsum ubi cernantur id duis expetendis ab appellat et cupidatat quid 
-                dolor possumus aute, possumus ea incurreret. Sed culpa quamquam mandaremus ubi 
-                fugiat aut appellat est labore. Iis ita malis enim nulla, occaecat varias irure 
-                a esse, o summis nescius excepteur ex ut iis fugiat tempor, possumus amet 
-                nostrud admodum se nescius minim cernantur aut aliqua mandaremus do nulla multos 
-                an velit ingeniis nam culpa duis. Quo labore exercitation, veniam id id lorem 
-                fabulas. Summis ut ullamco sed nisi se nostrud firmissimum ut incididunt ita 
-                nostrud te sunt quamquam o eiusmod magna quorum qui quorum a se ab quem nescius 
-                ubi eu summis litteris eruditionem ab dolor nescius exercitation ab ipsum ut 
-                arbitror qui multos. Quem commodo consectetur. Id noster ullamco si appellat 
-                adipisicing de nostrud, appellat veniam elit nam duis nam si aliqua cernantur 
-                voluptate, in nam velit legam irure ubi admodum quem nam nostrud fidelissimae, 
-                noster domesticarum probant ipsum possumus, velit officia ea culpa quem. Te quem 
-                quem hic aliquip, voluptate o voluptate.
+        <section class="row mt-3">
+            <div class="col-xs-12 col-sm-8 col-md-9">
+               <h3>¡Buscá tu lugar!</h3>
+                <form action="">
+                  <div class="form-group row">
+                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="Lugar">Lugar</label>
+                         <Select name="lugar" class="form-control" id="lugar">
+                         <option value="ubicacion" selected>Mi ubicación</option>
+                         <option value="caba">CABA</option>
+                         <option value="florenciovarela">Florencio Varela</option>
+                         <option value="laplata">La Plata</option>
+                         <option value="quilmes">Quilmes</option>
+                         </Select>
+                     </div>
+                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="distancia">Distancia máxima</label>
+                      <Select name="distancia" class="form-control" id="distancia">
+                          <option value="CualquierDistancia" selected>Cualquier distancia</option>
+                          <option value="5km">5 km</option>
+                          <option value="5km">10 km</option>
+                          <option value="5km">15 km</option>
+                          <option value="5km">20 km</option>
+                          <option value="5km">50 km</option>
+                      </Select>
+                     </div>    
+                  </div>
+                  <div class="row">
+                      <div class="col-12">
+                          <p>Categorías</p>
+                      </div>
+                  </div>
+                  <div class=" form-group row  px-4">
+                     <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="form-check-label">
+                             <label class="form-check-label">
+                                <input type="checkbox" name="categoria_bar" id="categoria_bar" class="form-check-input mr-2">Bares
+                             </label>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-4">                    
+                          <div class="form-check-label">
+                            <label  class="form-check-label">
+                             <input type="checkbox" name="categoria_restaurante" id="categoria_restaurante" class="form-check-input mr-2">Restaurantes
+                             </label>                      
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-4">
+                    
+                          <div class="form-check-label">
+                            <label  class="form-check-label">
+                             <input type="checkbox" name="categoria_balialble" id="categoria_bar" class="form-check-input mr-2">Bailables
+                             </label>                      
+                          </div>
+                      </div>
+                    </div>
+                     <div class=" form-group  row  px-4">
+                      <div class="col">
+                              <button class="btn btn-primary" type="submit">Buscar</button>
+                          </div>
+                      
+                  </div>
+                  
+                   
+                    
+                </form>
+            </div>
+            <aside class="col-xs-12 col-sm-4 col-md-3 p-4">
+               <div class="card  p-3">
+					<img src="img/bg1.jpg" class="card-img-top img-fluid" alt="">
+					<div class="card-block">
+						<h3 class="card-title">Título</h3>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                   </div>
+				</div>
+              <br>
+               <div class="card  p-3">
+					<div class="card-block">
+						<h3 class="card-title">Lorem ipsum.</h3>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, quibusdam.</p>
+					</div>
+				</div>
             </aside>
         </section>
-        <div class="row">
-            <div class="col-md-3">O ne sempiternum est an si adipisicing an illum ut singulis, aute se ullamco an 
-                labore. Se magna adipisicing. Cernantur nulla nescius doctrina, se possumus 
-                praetermissum. Aliqua cernantur mentitum, qui an quorum irure quis. Consequat eu 
-                deserunt. Hic sint an elit, singulis labore ipsum voluptate quorum aut eiusmod 
-                elit eram incididunt legam eu mandaremus fore possumus. Est iis legam fugiat 
-                aute, do e coniunctione.</div>
-            <div class="col-md-3">Singulis o nulla id et quae quis nam commodo, ea a despicationes ut est tempor 
-                instituendarum, ubi quorum non sint, eiusmod nulla laborum arbitror, voluptate 
-                veniam excepteur, ipsum quamquam ea multos labore. E in illum offendit nam nulla 
-                incurreret te familiaritatem ubi occaecat eram dolor admodum ipsum, ita cillum 
-                ex fore. Consequat concursionibus quo laboris se eiusmod dolor ex deserunt 
-                sempiternum aut hic nulla efflorescere, qui fugiat aut fugiat, ex enim veniam 
-                tamen senserit ab culpa ubi incurreret ita veniam expetendis quibusdam sed 
-                quorum ubi sed summis cupidatat. Hic magna vidisse eruditionem. E aut quae 
-                occaecat ubi proident labore iis ullamco familiaritatem, quamquam fugiat 
-                mandaremus aliquip aut incididunt veniam expetendis, a si graviterque ad 
-                singulis amet ipsum id veniam in pariatur coniunctione ab deserunt nam eram de 
-                nostrud. Aut quae offendit, in amet illustriora.</div>
-            <div class="col-md-3">Fabulas eram fore excepteur noster, nulla nam officia, ita tamen vidisse 
-                reprehenderit, e quorum eruditionem. Nisi eu ita quem arbitror, aut aute 
-                praesentibus, ullamco quo lorem ea mandaremus malis officia, id fore deserunt 
-                eruditionem, quis laborum philosophari, quo nostrud distinguantur, sunt 
-                efflorescere pariatur velit officia. Fugiat admodum non firmissimum qui quo ea 
-                enim pariatur. Aut eu sempiternum si quem firmissimum commodo fugiat nescius se 
-                dolore laborum an offendit, enim senserit reprehenderit do illum praesentibus 
-                officia varias pariatur, eram laborum deserunt, varias pariatur familiaritatem 
-                de cillum aliquip ne expetendis. Id duis noster lorem singulis. O est 
-                reprehenderit, cillum a vidisse nam amet iis amet iudicem nostrud, voluptate ita 
-                fore, expetendis aliqua velit ex culpa, fabulas varias te mandaremus 
-                transferrem, te labore eram aliqua eiusmod et id duis si dolore. Nisi 
-                arbitrantur fabulas quae fabulas, nisi proident do transferrem, ipsum appellat a 
-                tamen duis, cernantur noster quid qui cillum, est dolor incurreret deserunt, 
-                sint aut iis sint singulis te mentitum aut singulis ubi duis expetendis 
-                possumus.</div>
-            <div class="col-md-3">Eiusmod iis magna ingeniis est id voluptate imitarentur, ne esse iudicem 
-                expetendis, proident non quid arbitror. Si legam ita labore, tempor ne duis ut 
-                laboris esse cupidatat commodo ubi de legam relinqueret. Elit quibusdam arbitror 
-                est ea quorum ad eram iis nulla pariatur qui pariatur iis sed ad consectetur, 
-                nam a fugiat sint aliqua sed quis ullamco illustriora, excepteur fore non 
-                mentitum familiaritatem an ne aliqua an amet. Et lorem fidelissimae est nostrud 
-                tamen enim proident esse ea quamquam amet irure qui quid, amet iudicem an fore 
-                labore si illum a laborum qui si fore appellat, do ubi noster nisi enim, irure 
-                graviterque litteris ipsum mentitum. Est qui quid quae enim se te duis arbitror 
-                appellat ea non lorem transferrem, cupidatat hic fabulas. Se ne aute appellat 
-                iis id quamquam nam singulis. Do irure quis nam proident, iis nulla adipisicing, 
-                fabulas dolor cillum ingeniis veniam sed voluptate labore fabulas nam ingeniis 
-                ut dolor singulis, nam sint nescius mandaremus in sunt probant cohaerescant quo 
-                laboris anim summis nescius nisi.</div>
-
-        </div>
+        
     </div>
     <footer>
-        <h3>Footer</h3>
+        <div class="container bg-dark text-light text-center p-2">
+            <p>Wed creada para aprobar Proyecto</p>
+        </div>
     </footer>
 	
 	
 	
-	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
