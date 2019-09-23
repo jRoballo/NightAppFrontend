@@ -91,3 +91,17 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+/* Estilos temporales */
+.caja_consulta {
+    border: 1px solid #e0e0e0;
+}
+
+
+.columna_fitros {
+    background: #e0e0e0;
+}
+
+.columna_consultas {
+    background: white;
+}
