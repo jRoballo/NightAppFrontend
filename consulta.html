@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>NigthApp</title>
+	<title>NightApp</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet"> 
     <script>
     </script>
@@ -13,11 +14,11 @@
 <body>
    <header>
        <!-- barra de navegación -->
-        <div class="container">
+        <div class="container col-8">
            <div class="row">
                <div class="col-12">
                    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                    <a class="navbar-brand" href="#">NigthApp</a>
+                    <a class="navbar-brand" href="#">NightApp</a>
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                      </button>
@@ -32,7 +33,7 @@
                         </ul>
                         <ul class="nav navbar-nav ml-auto">
                           <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" href="#modal-login"><span class="fas fa-user"></span>Ingresar</a>
+                            <a class="nav-link" data-toggle="modal" href="#modal-login"><i class="mr-3 fa fa-user"></i></i>Ingresar</a>
                           </li>
                         </ul>
                        </div>
@@ -91,26 +92,135 @@
         
     </header>
     
-    <div class="container">
+    <div class="container col-8">
         <section class="row mt-3">
            <!-- columna main donde habrá una columna para los fitros y otra para los resultados de la consulta -->
             <div class="col-xs-12 col-sm-8 col-md-9">
                 <div class="row">
                     <!-- columna de filtros -->
-                    <div class="col-3 columna_fitros" >
-                        <p>Filtrar</p>
-                        <form>
-                            Wifi <input type="checkbox" name="wifi" id="wifi">
-                            <br>Entrada gratis <input type="checkbox" name="Entrada gratis" id="Gratis">
-                            <br>Estacionamiento <input type="checkbox" name="Estacionamiento" id="Estacionamiento">
-                            <br>Apto veganos <input type="checkbox" name="Apto veganos" id="Apto veganos">
-                            <br>Apto celiacos <input type="checkbox" name="Apto celiacos" id="Apto celiacos">
-                            <br>Sector fumador <input type="checkbox" name="Sector fumador" id="Sector fumador">
-                            <br>Aire Acondicinado <input type="checkbox" name="Aire Acondicinado" id="Aire Acondicinado">
-                            <br>Cena show <input type="checkbox" name="Cena show" id="Cena show">
-                            <br>Tenedor libre <input type="checkbox" name="Tenedor libre" id="Tenedor libre">
-                        </form>
-                    </div>
+                            <div class="card col-3" style="padding:0">
+                                    <article class="card-group-item">
+                                            <header class="card-header">
+                                                    <h6 class="title">Ubicacion</h6>
+                                            </header>
+                                            <div  class="filter-content collapse show" id="collapse22">
+                                                <div class="card-body">
+                                                    <form class="pb-3">
+                                                    <div class="input-group">
+                                                      <input class="form-control" placeholder="Ciudad/Localidad" type="text">
+                                                      <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                                                      </div>
+                                                    </div>
+                                                    </form>
+                                    
+                                                    <ul class="list-unstyled list-lg">
+                                                        <li><a href="#">Quilmes <span class="float-right badge badge-light round">142</span> </a></li>
+                                                        <li><a href="#">Lanus  <span class="float-right badge badge-light round">55</span>  </a></li>
+                                                        <li><a href="#">Avellaneda <span class="float-right badge badge-light round">32</span>  </a></li>
+                                                        <li><a href="#">Don Bosco <span class="float-right badge badge-light round">12</span>  </a></li>
+                                                    </ul>  
+                                                </div> <!-- card-body.// -->
+                                            </div> <!-- collapse .// -->
+                                        </article>
+                                    <article class="card-group-item card">
+                                            <header class="card-header">
+                                                <h6 class="title"> Tipo </h6>
+                                            </header>
+                                            <div class="filter-content">
+                                                <div class="card-body">
+                                                    <div class="custom-control custom-checkbox">
+                                                          <input type="checkbox" class="custom-control-input" id="Check1">
+                                                          <label class="custom-control-label" for="Check1">Bar</label>
+                                                    </div> <!-- form-check.// -->
+                                    
+                                                    <div class="custom-control custom-checkbox">
+                                                          <input type="checkbox" class="custom-control-input" id="Check2">
+                                                         <label class="custom-control-label" for="Check2">Boliche</label>
+                                                    </div> <!-- form-check.// -->
+                                    
+                                                    <div class="custom-control custom-checkbox">
+                                                          <input type="checkbox" class="custom-control-input" id="Check3">
+                                                          <label class="custom-control-label" for="Check3">Restaurante</label>
+                                                    </div> <!-- form-check.// -->
+                                
+                                                </div> <!-- card-body.// -->
+                                            </div>
+                                        </article>
+                                        <article class="card-group-item card">
+                                                <header class="card-header">
+                                                    <h6 class="title"> Servicios </h6>
+                                                </header>
+                                                <div class="filter-content">
+                                                    <div class="card-body">
+                                                        <div class="custom-control custom-checkbox">
+                                                              <input type="checkbox" class="custom-control-input" id="Check4">
+                                                              <label class="custom-control-label" for="Check4">Aire acondicionado</label>
+                                                        </div> <!-- form-check.// -->
+                                        
+                                                        <div class="custom-control custom-checkbox">
+                                                              <input type="checkbox" class="custom-control-input" id="Check5">
+                                                             <label class="custom-control-label" for="Check5">Wifi</label>
+                                                        </div> <!-- form-check.// -->
+                                        
+                                                        <div class="custom-control custom-checkbox">
+                                                              <input type="checkbox" class="custom-control-input" id="Check6">
+                                                              <label class="custom-control-label" for="Check6">Happy hour</label>
+                                                        </div> <!-- form-check.// -->
+
+                                                        <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Check7">
+                                                                <label class="custom-control-label" for="Check7">Estacionamiento</label>
+                                                        </div> <!-- form-check.// -->
+
+                                                        <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="Check8">
+                                                                <label class="custom-control-label" for="Check8">Pool</label>
+                                                        </div> <!-- form-check.// -->
+                                    
+                                                    </div> <!-- card-body.// -->
+                                                </div>
+                                            </article>
+
+                                            <article class="card-group-item card">
+                                                    <header class="card-header">
+                                                        <h6 class="title"> Menu </h6>
+                                                    </header>
+                                                    <div class="filter-content">
+                                                        <div class="card-body">
+                                                            <div class="custom-control custom-checkbox">
+                                                                  <input type="checkbox" class="custom-control-input" id="Check9">
+                                                                  <label class="custom-control-label" for="Check9">Vegano</label>
+                                                            </div> <!-- form-check.// -->
+                                            
+                                                            <div class="custom-control custom-checkbox">
+                                                                  <input type="checkbox" class="custom-control-input" id="Check10">
+                                                                 <label class="custom-control-label" for="Check10">Vegetariano</label>
+                                                            </div> <!-- form-check.// -->
+                                            
+                                                            <div class="custom-control custom-checkbox">
+                                                                  <input type="checkbox" class="custom-control-input" id="Check11">
+                                                                  <label class="custom-control-label" for="Check11">Celiaco</label>
+                                                            </div> <!-- form-check.// -->
+    
+                                                            <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="Check12">
+                                                                    <label class="custom-control-label" for="Check12">Comida China</label>
+                                                            </div> <!-- form-check.// -->
+    
+                                                            <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="Check13">
+                                                                    <label class="custom-control-label" for="Check13">Hamburguesa</label>
+                                                            </div> <!-- form-check.// -->
+                                        
+                                                        </div> <!-- card-body.// -->
+                                                    </div>
+                                                </article>
+                            </div> <!-- card.// -->
+                            
+                            
+                            
+                            
                     <!-- fin de columna de filtros -->
                     <!-- columna de consultas -->
                     <div class="col-9 columna_consultas p-1"> 
@@ -245,7 +355,8 @@
 	
 	
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
