@@ -176,13 +176,13 @@ protected.singleton
 function crearFiltro(){
     let filtro = {}
     let servicios = []
-    let menu = []
+    let menus = []
     let categorias = []
     document.querySelector("#filtro_Servicios").querySelectorAll("input").forEach(x=>x.checked?servicios.push(x.name):undefined);
     document.querySelector("#filtro_Menus").querySelectorAll("input").forEach(x=>x.checked?menu.push(x.name):undefined);
     document.querySelector("#filtro_Categorias").querySelectorAll("input").forEach(x=>x.checked?categorias.push(x.name):undefined);
     filtro.Servicios = servicios
-    filtro.Menu = menu
+    filtro.Menus = menus
     filtro.Categorias = categorias
     return filtro
 }
