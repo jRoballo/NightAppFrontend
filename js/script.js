@@ -9,6 +9,7 @@ if(serverOn){
     updateBody(getEstablecimientosMock());
     updateTipoFilter(getCategoriasMock());
     updateServiciosFilter(getServiciosMock());
+    updateMenuFilter(getMenuMock());
 }
 
 function getEstablecimientosMock(){
@@ -24,12 +25,38 @@ function getServiciosMock(){
     return [{"Id":10,"Nombre":"Aire acondicionado"},{"Id":11,"Nombre":"Cerveza artesanal"},{"Id":12,"Nombre":"Entrada gratis"},{"Id":13,"Nombre":"Estacionamiento"},{"Id":9,"Nombre":"Guardarropa"},{"Id":6,"Nombre":"Happy Hour"},{"Id":7,"Nombre":"Jenga"},{"Id":8,"Nombre":"Juegos de mesa"},{"Id":5,"Nombre":"Pool"},{"Id":4,"Nombre":"Sector fumador"},{"Id":14,"Nombre":"Show"},{"Id":3,"Nombre":"Television"},{"Id":1,"Nombre":"Tenedor libre"},{"Id":2,"Nombre":"Wifi"}]
 }
 
+function getMenuMock(){
+    return [{"Id":3,"Nombre":"Celiaco"},{"Id":5,"Nombre":"Comida internacional"},{"Id":4,"Nombre":"Comida japonesa"},{"Id":6,"Nombre":"Hambuerguesa"},{"Id":9,"Nombre":"Parrilla"},{"Id":8,"Nombre":"Pasta"},{"Id":7,"Nombre":"Pizza"},{"Id":1,"Nombre":"Vegano"},{"Id":2,"Nombre":"Vegetariano"}]
+}
+
 
 function getAll() {
     fetch(url+'/establecimientos?size=5')
         .then(res => res.json())
         .then(data => updateBody(data))
 }
+
+function updateMenuFilter(data){
+    for (let index = 0; index < data.length; index++) {
+        let id = data[index].Id;
+        let nombre = data[index].Nombre;
+        let box = document.createElement("div")
+        box.className = "custom-control custom-checkbox"
+        let input = document.createElement("input")
+        input.type = "checkbox"
+        input.className = "custom-control-input"
+        input.id = "check-menu-"+id
+        input.checked = true
+        let label = document.createElement("label")
+        label.className = "custom-control-label"
+        label.htmlFor = input.id
+        label.textContent = nombre
+        box.appendChild(input)
+        box.appendChild(label)
+        document.querySelector("#filtro_menu").appendChild(box)
+    }
+}
+
 
 function updateServiciosFilter(data){
     for (let index = 0; index < data.length; index++) {
