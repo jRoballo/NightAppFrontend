@@ -2,14 +2,12 @@
 
 let serverOn = !confirm("Para continuar con datos 'Mock' presione Aceptar.\nPara conexion real con Backend presione cancelar"); 
 let url = "http://localhost:55555/app";
-
+let secciones = ["Categorias","Menus","Servicios"]
 //Inicializa con conexion backend o datos mock
 if(serverOn){
-    getAll();
-    //Falta fetch de Categorias
-    //Falta fetch de Servicios
+    getAllEstablecimientos();
+    secciones.forEach(x=>getAllGenerico(x))
 }else{
-    let secciones = ["Categorias","Menu","Servicios"]
     secciones.forEach(x=>updateSection(x,getRequiredMock(x)))
     updateBody(getEstablecimientosMock());
 }
@@ -30,7 +28,7 @@ function getRequiredMock(name){
       switch(name){
         case "Categorias":
             return getCategoriasMock()
-        case "Menu":
+        case "Menus":
             return getMenuMock()
         case "Servicios":
             return getServiciosMock()
@@ -91,11 +89,18 @@ function updateSection(sectionName, data){
 }
 
 //getAll Establecimientos s/filtros a backend
-function getAll() {
+function getAllEstablecimientos() {
     fetch(url+'/establecimientos?size=5')
         .then(res => res.json())
         .then(data => updateBody(data))
 }
+function getAllGenerico(nombre) {
+    fetch(url+'/'+nombre.toLowerCase())
+        .then(res => res.json())
+        .then(data => updateSection(nombre,data))
+}
+
+
 
 //Actualiza el Filtro
 function updateCurrentFilter(name, nombreSeccion){
@@ -174,7 +179,7 @@ function crearFiltro(){
     let menu = []
     let categorias = []
     document.querySelector("#filtro_Servicios").querySelectorAll("input").forEach(x=>x.checked?servicios.push(x.name):undefined);
-    document.querySelector("#filtro_Menu").querySelectorAll("input").forEach(x=>x.checked?menu.push(x.name):undefined);
+    document.querySelector("#filtro_Menus").querySelectorAll("input").forEach(x=>x.checked?menu.push(x.name):undefined);
     document.querySelector("#filtro_Categorias").querySelectorAll("input").forEach(x=>x.checked?categorias.push(x.name):undefined);
     filtro.Servicios = servicios
     filtro.Menu = menu
