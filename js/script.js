@@ -1,17 +1,20 @@
-let serverOn = false; 
+(function(){
+
+let serverOn = !confirm("Para continuar con datos 'Mock' presione Aceptar.\nPara conexion real con Backend presione cancelar"); 
 let url = "http://localhost:55555/app";
 
+//Inicializa con conexion backend o datos mock
 if(serverOn){
     getAll();
     //Falta fetch de Categorias
     //Falta fetch de Servicios
 }else{
+    let secciones = ["Categorias","Menu","Servicios"]
+    secciones.forEach(x=>updateSection(x,getRequiredMock(x)))
     updateBody(getEstablecimientosMock());
-    updateTipoFilter(getCategoriasMock());
-    updateServiciosFilter(getServiciosMock());
-    updateMenuFilter(getMenuMock());
 }
 
+//Singleton para mantener un unico Filtro
 var protected = {
     _filtro_singleton: null,
     get singleton() {
@@ -20,12 +23,24 @@ var protected = {
       }
       return this._filtro_singleton;
     }
-  };
+};
 
+//Retorna el Mock requerido
+function getRequiredMock(name){
+      switch(name){
+        case "Categorias":
+            return getCategoriasMock()
+        case "Menu":
+            return getMenuMock()
+        case "Servicios":
+            return getServiciosMock()
+      }
+      
+}
 
+//Mocks
 function getEstablecimientosMock(){
-    return [
-        { "Id": 1, "Nombre": "Parrilla El Tano","Descripcion": "El Tano es una parrilla con tenedor libre ubicada en Avellaneda que hace culto de la informalidad y la comida abundante. Tiene un ambiente familiar, con mesas largas y las paredes decoradas con camisetas de fútbol.", "Categorias": [ { "Id": 3, "Nombre": "Restaurant" } ], "Rating": 5, "Activo": true }, { "Id": 2, "Nombre": "La Roca", "Descripcion": "El mejor bar-boliche de todo Buenos Aires. Pasate esta noche, te va a encantar!", "Categorias": [ { "Id": 1, "Nombre": "Bar" }, { "Id": 2, "Nombre": "Boliche" } ], "Rating": 3, "Activo": true }, { "Id": 3, "Nombre": "Baires Sushi Club", "Descripcion": "Un estiloso y entretenido lugar donde encontrarás ricos tragos y una tentadora oferta de sushi para disfrutar un momento relajado y entretenido.Ubicados en el bohemio Barrio Brasil de Santiago Centro encontrarás un sitio con un ambiente vanguardista", "Categorias": [ { "Id": 1, "Nombre": "Bar" } ], "Rating": 3, "Activo": true }, { "Id": 4, "Nombre": "La Birra Bar", "Descripcion": "Desde 2001 sirviendo comida casera y las mejores hamburguesas. Prestando especial atención al servicio y poniendo dedicación en la preparación del café.", "Categorias": null, "Rating": 5, "Activo": true }]
+    return [ { "Id": 1, "Nombre": "Parrilla El Tano","Descripcion": "El Tano es una parrilla con tenedor libre ubicada en Avellaneda que hace culto de la informalidad y la comida abundante. Tiene un ambiente familiar, con mesas largas y las paredes decoradas con camisetas de fútbol.", "Categorias": [ { "Id": 3, "Nombre": "Restaurant" } ], "Rating": 5, "Activo": true }, { "Id": 2, "Nombre": "La Roca", "Descripcion": "El mejor bar-boliche de todo Buenos Aires. Pasate esta noche, te va a encantar!", "Categorias": [ { "Id": 1, "Nombre": "Bar" }, { "Id": 2, "Nombre": "Boliche" } ], "Rating": 3, "Activo": true }, { "Id": 3, "Nombre": "Baires Sushi Club", "Descripcion": "Un estiloso y entretenido lugar donde encontrarás ricos tragos y una tentadora oferta de sushi para disfrutar un momento relajado y entretenido.Ubicados en el bohemio Barrio Brasil de Santiago Centro encontrarás un sitio con un ambiente vanguardista", "Categorias": [ { "Id": 1, "Nombre": "Bar" } ], "Rating": 3, "Activo": true }, { "Id": 4, "Nombre": "La Birra Bar", "Descripcion": "Desde 2001 sirviendo comida casera y las mejores hamburguesas. Prestando especial atención al servicio y poniendo dedicación en la preparación del café.", "Categorias": null, "Rating": 5, "Activo": true }]
 }
 
 function getCategoriasMock(){
@@ -39,16 +54,13 @@ function getServiciosMock(){
 function getMenuMock(){
     return [{"Id":3,"Nombre":"Celiaco"},{"Id":5,"Nombre":"Comida internacional"},{"Id":4,"Nombre":"Comida japonesa"},{"Id":6,"Nombre":"Hambuerguesa"},{"Id":9,"Nombre":"Parrilla"},{"Id":8,"Nombre":"Pasta"},{"Id":7,"Nombre":"Pizza"},{"Id":1,"Nombre":"Vegano"},{"Id":2,"Nombre":"Vegetariano"}]
 }
+//
 
 
-function getAll() {
-    fetch(url+'/establecimientos?size=5')
-        .then(res => res.json())
-        .then(data => updateBody(data))
-}
-
-function updateMenuFilter(data){
+//Arma las secciones de filtros
+function updateSection(sectionName, data){
     for (let index = 0; index < data.length; index++) {
+        let containerName = "#filtro_"+ sectionName
         let id = data[index].Id;
         let nombre = data[index].Nombre;
         let box = document.createElement("div")
@@ -56,55 +68,10 @@ function updateMenuFilter(data){
         let input = document.createElement("input")
         input.type = "checkbox"
         input.className = "custom-control-input"
-        input.id = "check-menu-"+id
+        input.id = "check-" + sectionName + "-"+id
         input.name = nombre
         input.checked = true
-        let label = document.createElement("label")
-        label.className = "custom-control-label"
-        label.htmlFor = input.id
-        label.textContent = nombre
-        box.appendChild(input)
-        box.appendChild(label)
-        document.querySelector("#filtro_menu").appendChild(box)
-    }
-}
-
-
-function updateServiciosFilter(data){
-    for (let index = 0; index < data.length; index++) {
-        let id = data[index].Id;
-        let nombre = data[index].Nombre;
-        let box = document.createElement("div")
-        box.className = "custom-control custom-checkbox"
-        let input = document.createElement("input")
-        input.type = "checkbox"
-        input.className = "custom-control-input"
-        input.id = "check-serv-"+id
-        input.checked = true
-        input.name = nombre
-        let label = document.createElement("label")
-        label.className = "custom-control-label"
-        label.htmlFor = input.id
-        label.textContent = nombre
-        box.appendChild(input)
-        box.appendChild(label)
-        document.querySelector("#filtro_servicios").appendChild(box)
-    }
-}
-
-function updateTipoFilter(data){
-    for (let index = 0; index < data.length; index++) {
-        let id = data[index].Id;
-        let nombre = data[index].Nombre;
-        let box = document.createElement("div")
-        box.className = "custom-control custom-checkbox"
-        let input = document.createElement("input")
-        input.type = "checkbox"
-        input.className = "custom-control-input"
-        input.id = "check-tipo-"+id
-        input.checked = true
-        input.name = nombre
-        input.seccion = "Categorias"
+        input.section = sectionName
         let label = document.createElement("label")
         label.className = "custom-control-label"
         label.htmlFor = input.id
@@ -112,22 +79,27 @@ function updateTipoFilter(data){
         box.appendChild(input)
         box.appendChild(label)
         input.addEventListener("click",e=>{
-            if(document.querySelector("#filtro_tipo").querySelectorAll("input:checked").length>0){
-                updateCurrentFilter(input.name,input.seccion)
+            if(document.querySelector(containerName).querySelectorAll("input:checked").length>0){
+                updateCurrentFilter(input.name,input.section)
             }
             else{
                 e.preventDefault()
-            }
-            
-            
+            }      
         })
-        document.querySelector("#filtro_tipo").appendChild(box)
+        document.querySelector(containerName).appendChild(box)
     }
 }
 
+//getAll Establecimientos s/filtros a backend
+function getAll() {
+    fetch(url+'/establecimientos?size=5')
+        .then(res => res.json())
+        .then(data => updateBody(data))
+}
+
+//Actualiza el Filtro
 function updateCurrentFilter(name, nombreSeccion){
     if(protected.singleton[nombreSeccion].includes(name)){
-        protected.singleton[nombreSeccion].pop(name)
         var index = protected.singleton[nombreSeccion].indexOf(name);
         if (index > -1) {
             protected.singleton[nombreSeccion].splice(index, 1);
@@ -136,7 +108,6 @@ function updateCurrentFilter(name, nombreSeccion){
         protected.singleton[nombreSeccion].push(name)
     }
     console.dir(protected.singleton)
-
 }
 
 function updateBody(data) {
@@ -192,16 +163,19 @@ function updateBody(data) {
     }
 }
 
+//Inicializa Singleton
 protected.singleton
 
+
+//Creacion inicial de filtros
 function crearFiltro(){
     let filtro = {}
     let servicios = []
     let menu = []
     let categorias = []
-    document.querySelector("#filtro_servicios").querySelectorAll("input").forEach(x=>x.checked?servicios.push(x.name):undefined);
-    document.querySelector("#filtro_menu").querySelectorAll("input").forEach(x=>x.checked?menu.push(x.name):undefined);
-    document.querySelector("#filtro_tipo").querySelectorAll("input").forEach(x=>x.checked?categorias.push(x.name):undefined);
+    document.querySelector("#filtro_Servicios").querySelectorAll("input").forEach(x=>x.checked?servicios.push(x.name):undefined);
+    document.querySelector("#filtro_Menu").querySelectorAll("input").forEach(x=>x.checked?menu.push(x.name):undefined);
+    document.querySelector("#filtro_Categorias").querySelectorAll("input").forEach(x=>x.checked?categorias.push(x.name):undefined);
     filtro.Servicios = servicios
     filtro.Menu = menu
     filtro.Categorias = categorias
@@ -213,3 +187,4 @@ let nav = document.createElement("nav")
 nav.className = "mt-3"
 let ul = document.createElement("ul")
 ul.className = "pagination d-flex justify-content-center"
+}());
