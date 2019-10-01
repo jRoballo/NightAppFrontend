@@ -1,33 +1,23 @@
-/*asd();
-
-function asd(){
-    let select = document.querySelector('#lugar');
-    
-    fetch('http://localhost:55555/app/establecimientos')
-    .then(res=>res.json())
-    .then(data => {
-        for (let index = 0; index < data.length; index++) {
-            var nombre = data[index].Nombre; 
-            var opt = document.createElement('option');
-            opt.value = nombre; 
-            opt.appendChild( document.createTextNode(nombre) );
-            select.appendChild(opt); 
-        }
-    }).catch(err => {
-    });
-    
-    console.log('xd')
-    fetch('http://localhost:55555/app/categorias/1')
-    .then(res=>res.json())
-    .then(data => {
-        console.log(data)
-    }).catch(err => {
-        
-    });
-}
-*/
+let serverOn = false; 
 let url = "http://localhost:55555/app";
-getAll();
+
+if(serverOn){
+    getAll();
+    //Falta fetch de Categorias
+}else{
+    updateBody(getEstablecimientosMock());
+    updateTipoFilter(getCategoriasMock())
+}
+
+function getEstablecimientosMock(){
+    return [
+        { "Id": 1, "Nombre": "Parrilla El Tano","Descripcion": "El Tano es una parrilla con tenedor libre ubicada en Avellaneda que hace culto de la informalidad y la comida abundante. Tiene un ambiente familiar, con mesas largas y las paredes decoradas con camisetas de fútbol.", "Categorias": [ { "Id": 3, "Nombre": "Restaurant" } ], "Rating": 5, "Activo": true }, { "Id": 2, "Nombre": "La Roca", "Descripcion": "El mejor bar-boliche de todo Buenos Aires. Pasate esta noche, te va a encantar!", "Categorias": [ { "Id": 1, "Nombre": "Bar" }, { "Id": 2, "Nombre": "Boliche" } ], "Rating": 3, "Activo": true }, { "Id": 3, "Nombre": "Baires Sushi Club", "Descripcion": "Un estiloso y entretenido lugar donde encontrarás ricos tragos y una tentadora oferta de sushi para disfrutar un momento relajado y entretenido.Ubicados en el bohemio Barrio Brasil de Santiago Centro encontrarás un sitio con un ambiente vanguardista", "Categorias": [ { "Id": 1, "Nombre": "Bar" } ], "Rating": 3, "Activo": true }, { "Id": 4, "Nombre": "La Birra Bar", "Descripcion": "Desde 2001 sirviendo comida casera y las mejores hamburguesas. Prestando especial atención al servicio y poniendo dedicación en la preparación del café.", "Categorias": null, "Rating": 5, "Activo": true }]
+}
+
+function getCategoriasMock(){
+    return [{"Id":1,"Nombre":"Bar"},{"Id":2,"Nombre":"Boliche"},{"Id":3,"Nombre":"Restaurant"}]
+}
+
 
 function getAll() {
     fetch(url+'/establecimientos?size=5')
@@ -35,13 +25,34 @@ function getAll() {
         .then(data => updateBody(data))
 }
 
+function updateTipoFilter(data){
+    for (let index = 0; index < data.length; index++) {
+        let id = data[index].Id;
+        let nombre = data[index].Nombre;
+        let box = document.createElement("div")
+        box.className = "custom-control custom-checkbox"
+        let input = document.createElement("input")
+        input.type = "checkbox"
+        input.className = "custom-control-input"
+        input.id = "check-"+id
+        input.checked = true
+        let label = document.createElement("label")
+        label.className = "custom-control-label"
+        label.htmlFor = input.id
+        label.textContent = nombre
+        box.appendChild(input)
+        box.appendChild(label)
+        document.querySelector("#filtro_tipo").appendChild(box)
+    }
+}
+
 
 function updateBody(data) {
     for (let index = 0; index < data.length; index++) {
-        var id = data[index].Id;
-        var nombre = data[index].Nombre;
-        var descripcion = data[index].Descripcion;
-        var rating = data[index].Rating;
+        let id = data[index].Id;
+        let nombre = data[index].Nombre;
+        let descripcion = data[index].Descripcion;
+        let rating = data[index].Rating;
 
         let box = document.createElement("div")
         box.className = "row caja_consulta rounded m-1 p-1"
@@ -88,7 +99,6 @@ function updateBody(data) {
         document.querySelector("#establecimientos").appendChild(box)
     }
 }
-
 
 //Para hacer despues. La paginacion que se genere bien como corresponda cantidad de paginas, seleccionado, si existe siguiente o anterior. etc
 let nav = document.createElement("nav")
