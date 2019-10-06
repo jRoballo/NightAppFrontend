@@ -92,6 +92,42 @@
     transform: rotate(45deg);
 }
 
+.media {
+    border-top: 1px solid #bfbfbf;
+    padding-top: 20px;
+}
+
+.media img {
+    margin: 20px;
+}
+
+.media .nombre{
+    color: #4b65d1;
+    margin-bottom: 0;
+}
+
+.media .nombre span {
+    font-size: 12px;
+    color: #464646;
+    margin-left: 10px;
+}
+
+.media .comentario {
+    margin-top: 10px;
+}
+
+.media .boton {
+    margin-bottom: 10px;
+}
+
+.media .boton a{
+    color: #acacac;
+    font-size: 14px;
+    margin-left: 15px;
+    
+}
+
+
 /* Estilos temporales */
 .caja_consulta {
     border: 1px solid #e0e0e0;
@@ -104,4 +140,16 @@
 
 .columna_consultas {
     background: white;
+}
+
+.borderojo{
+    border: 1px solid #e00000;
+}
+
+.bordeazul{
+    border: 1px solid #0000e0;
+}
+
+.bordeverde{
+    border: 1px solid #00e000;
 }
