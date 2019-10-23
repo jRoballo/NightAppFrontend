@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>NigthApp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+   <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet"> 
+    <script>
+
+    </script>
+</head>
+<body>
+    <header>
+       <!-- barra de navegación -->
+        <div class="container">
+           <div class="row">
+               <div class="col-12">
+                   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <a class="navbar-brand" href="#">NigthApp</a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                     </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav bg-inverse">
+                          <li class="nav-item">
+                               <a href="index.html" class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Ayuda</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" href="#modal-login"><span class="fas fa-user"></span>Ingresar</a>
+                          </li>
+                        </ul>
+                       </div>
+                   </nav>
+                    
+               </div>
+           </div>
+         <!-- fin de barra de navegación -->
+            <!-- modal login-->
+           <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                 <div class="modal-content">
+                     <div class="modal-body">
+                         <div class="row">
+                            <div class="col">
+                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                            </div>
+                             
+                         </div>
+                        <div class="row">
+                        <div class="col text-center p-4">
+                           <form  action="" method="">
+                                <div class="form-group" id="user-group">
+                                    <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
+                                </div>
+                                <div class="form-group" id="contrasena-group">
+                                    <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
+                                </div>
+                                <button type="submit" class="btn  btn-dark"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                            </form>
+                            
+                        </div>
+                         
+                     </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="recuperar_contraseña">Olvidé la contraseña</a>
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="registro.html">Registrarte</a>
+					        </div>
+                        </div>
+                         
+                     </div>
+                     
+                 </div>                  
+              </div>
+               
+           </div>
+           <!-- fin modal login -->
+        </div>
+        
+    </header>
+    
+    
+    <div class="container">
+        <section class="row m-4">
+           <!-- Columna principal -->
+            <div class="col-xs-12 col-sm-8 col-md-9">
+              
+              <!--- inicia perfil de usuario -->
+              
+              <div class="row">
+				<div class="col-xs-12"><h2>Perfil de Usuario</h2></div>
+			</div>
+		<br />
+
+		<form class="form-horizontal">
+
+				<div class="form-group">
+					    <label class=" control-label" for="formGroup">Nombre de Usuario</label>
+					    <div class="col-6">
+					      <input class="form-control" type="text" id="formGroup" value="Usuario" disabled>
+					    </div>
+					  </div>
+
+					<div class="form-group">
+					    <label class="col control-label" for="formGroup">Nombre</label>
+					    <div class="col-6">
+					      <input class="form-control" type="text" id="formGroup" placeholder="Tu nombre">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup">Apellidos</label>
+					    <div class="col-6">
+					      <input class="form-control" type="text" id="formGroup">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup" id="tel">Teléfono</label>
+
+					    <div class="input-group col-6">
+					      <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+					      <input class="form-control" type="text" id="formGroup">
+					      
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup" id="tel">Correo electrónico</label>
+					    <div class="input-group col-6">
+					      <input class="form-control" type="email" id="formGroup">
+					      
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup">Información biográfica</label>
+					    <div class="col-6">
+					      
+					      <textarea class="form-control" rows="4"></textarea>
+					      
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup">Estado</label>
+					    <div class="col-6">
+					      
+					      <select class="form-control">
+					        <option>En línea</option>
+					        <option>Ocupado</option>
+					        <option>Ausente</option>
+					        <option>Desconectado</option>
+					        
+					      </select>
+					      
+					    </div>
+					  </div>
+				
+					<div class="form-group">
+					    <label class="col control-label" for="formGroup">Alias</label>
+					    <div class="col-6">
+					      <input class="form-control" type="text" id="formGroup">
+					      <span class="help-block">Este nombre sera mostrado a los usuarios, ocultando el verdadero nombre.</span>
+					    </div>
+					  </div>
+
+					<div class="form-group">
+					    <label class="col control-label" for="formGroup">Cuenta</label>
+					    <div class="col-sm-4">
+					      
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> Activar
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Desactivar
+							</label>
+
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="col control-label" for="formGroup">Mostrar Información</label>
+					    <div class="col-sm-4">
+					      
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox1" value="option1" checked disabled> Nombre
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox2" value="option2"> Biografía
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" id="inlineCheckbox3" value="option3"> Teléfono
+							</label>
+
+					    </div>
+					  </div>
+						<br />
+
+						<div class="form-group">
+					    <label class="col control-label" for="formGroup"></label>
+					    <div class="col-12">
+					      
+							<button type="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>
+							
+							<button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar</button>
+
+
+					    </div>
+					  </div>
+
+
+
+		</form>	
+              
+              
+              
+              
+              <!--- hasta acá el perfil de usuario -->
+               
+            </div>
+            <!-- fin de columna principal -->
+            <!-- columna lateral -->
+            <aside class="col-xs-12 col-sm-4 col-md-3 p-2">
+               <div class="card  p-3">
+					<img src="img/beer.jpg" class="card-img-top img-fluid" alt="">
+					<div class="card-block">
+						<h3 class="card-title">Beer</h3>
+						<p class="card-text">Cervecería artesanal. </p>
+                   </div>
+				</div>
+              <br>
+               <div class="card  p-3">
+					<img src="img/Dj.jpg" class="card-img-top img-fluid" alt="">
+					<div class="card-block">
+						<h3 class="card-title">Phoenix</h3>
+						<p class="card-text">Techno - Dance - Electrónica. </p>
+                   </div>
+				</div>
+            </aside>
+            <!-- fin de columna lateral -->
+        </section>
+        
+    </div>
+    
+    <footer>
+        <div class="container bg-dark text-light text-center p-2">
+            <p>Wed creada para aprobar Proyecto</p>
+        </div>
+    </footer>
+	
+	
+	
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
